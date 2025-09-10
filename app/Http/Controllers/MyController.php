@@ -9,6 +9,6 @@ class MyController extends Controller
 {
     public function index(){
         $post=Post::all();
-        return $post;
+        return response()->json($post);
     }
 }
