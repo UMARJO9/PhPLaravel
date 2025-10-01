@@ -55,3 +55,5 @@ Route::get("likes",[MainController::class,'Likes']);
 Route::get('/', [GetAllUser::class, 'GetAllUsers'])->name('all_users');
 Route::get('name_user', [NameUsers::class, 'UserName'])->name('name_user');
 Route::get('old_user', [OldUsers::class, 'OldUsers'])->name('old_user');
+
+Route::get('show_all_users_in_db',[GetAllUser::class, 'GetAllUsers'])->name('show_all_users_in_db');
