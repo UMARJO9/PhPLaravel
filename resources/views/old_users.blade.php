@@ -1,4 +1,8 @@
-<h1>Кол users старше 30</h1>
+@extends('layouts.app')
+
+@section('title', 'Old User')
+
+@section('content')
 <table border="1" cellpadding="5">
     <thead>
     <tr>
@@ -10,3 +14,4 @@
         </tr>
     </tbody>
 </table>
+@endsection

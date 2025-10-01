@@ -1,4 +1,8 @@
-<h1>Толыко Имена</h1>
+@extends('layouts.app')
+
+@section('title', 'Name User')
+
+@section('content')
 <table border="1" cellpadding="5">
     <thead>
     <tr>
@@ -13,3 +17,4 @@
     @endforeach
     </tbody>
 </table>
+@endsection
