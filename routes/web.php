@@ -57,3 +57,7 @@ Route::get('name_user', [NameUsers::class, 'UserName'])->name('name_user');
 Route::get('old_user', [OldUsers::class, 'OldUsers'])->name('old_user');
 
 Route::get('show_all_users_in_db',[GetAllUser::class, 'GetAllUsers'])->name('show_all_users_in_db');
+Route::get('add_users', [MainController::class, 'showAddUserForm'])->name('add_users');
+
+// Сохранение нового пользователя
+Route::post('add_users', [MainController::class, 'storeUser'])->name('store_user');
