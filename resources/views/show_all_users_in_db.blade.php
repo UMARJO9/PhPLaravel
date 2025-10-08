@@ -7,22 +7,28 @@
     <div class="container mt-4">
         <h1 class="mb-4 text-center">Список пользователей</h1>
 
+        @if(session('success'))
+            <div class="alert alert-success text-center">{{ session('success') }}</div>
+        @endif
+
         <div class="table-wrapper mx-auto">
             <div class="table-responsive">
                 <table class="custom-table">
                     <thead>
                     <tr>
-                        <th>ID</th>
+                        <th class="text-center">ID</th>
                         <th>Имя</th>
                         <th>Фамилия</th>
                         <th>Email</th>
-                        <th>Возраст</th>
-                        <th>Статус</th>
+                        <th class="text-center">Возраст</th>
+                        <th class="text-center">Статус</th>
                         <th>Создан</th>
+                        <th class="text-center">Редактировать</th>
+                        <th class="text-center">Удалить</th>
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($result as $u)
+                    @forelse($result as $u)
                         <tr>
                             <td class="text-center">{{ $u->id }}</td>
                             <td>{{ $u->first_name }}</td>
@@ -37,8 +43,28 @@
                                 @endif
                             </td>
                             <td class="text-muted">{{ $u->created_at->format('d.m.Y H:i') }}</td>
+                            <td class="text-center">
+                                <a href="{{ route('edit_user', $u->id) }}" class="btn btn-sm btn-outline-primary rounded-pill px-3">
+                                    ✏️
+                                </a>
+                            </td>
+                            <td class="text-center">
+                                <form action="{{ route('delete_user', $u->id) }}" method="POST" onsubmit="return confirm('Удалить пользователя {{ $u->first_name }}?')">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-sm btn-outline-danger rounded-pill px-3">
+                                        🗑️
+                                    </button>
+                                </form>
+                            </td>
                         </tr>
-                    @endforeach
+                    @empty
+                        <tr>
+                            <td colspan="9" class="text-center text-muted py-4">
+                                <em>Пользователей пока нет</em>
+                            </td>
+                        </tr>
+                    @endforelse
                     </tbody>
                 </table>
             </div>

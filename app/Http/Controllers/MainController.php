@@ -42,4 +42,32 @@ class MainController extends Controller
 
         return redirect()->route('show_all_users_in_db')->with('success', 'User added successfully!');
     }
+    public function editUser($id)
+    {
+        $user = UserCity::findOrFail($id);
+        return view('edit_user', compact('user'));
+    }
+
+    public function updateUser(Request $request, $id)
+    {
+        $user = UserCity::findOrFail($id);
+
+        $request->validate([
+            'first_name' => 'required|string|max:255',
+            'last_name'  => 'required|string|max:255',
+            'email'      => 'required|email|unique:user_cities,email,' . $id,
+            'age'        => 'required|integer|min:1',
+        ]);
+
+        $user->update($request->only('first_name', 'last_name', 'email', 'age'));
+
+        return redirect()->route('show_all_users_in_db')->with('success', 'Данные обновлены!');
+    }
+    public function deleteUser($id)
+    {
+        $user = UserCity::findOrFail($id);
+        $user->delete();
+
+        return redirect()->route('show_all_users_in_db')->with('success', 'Пользователь удалён!');
+    }
 }

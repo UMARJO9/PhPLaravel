@@ -23,12 +23,7 @@
                         Show All Users in Database
                     </a>
                 </li>
-{{--                <li class="nav-item">--}}
-{{--                    <a class="nav-link @if(request()->routeIs('action_users.blade.php')) active @endif"--}}
-{{--                       href="{{ route('old_user') }}">--}}
-{{--                        Action Users--}}
-{{--                    </a>--}}
-{{--                </li>--}}
+
             </ul>
         </div>
     </div>
