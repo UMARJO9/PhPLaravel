@@ -58,7 +58,7 @@ Route::get('old_user', [OldUsers::class, 'OldUsers'])->name('old_user');
 
 Route::get('show_all_users_in_db',[GetAllUser::class, 'GetAllUsers'])->name('show_all_users_in_db');
 Route::get('add_users', [MainController::class, 'showAddUserForm'])->name('add_users');
-
+Route::get('/users/search', [GetAllUser::class, 'search'])->name('users.search');
 Route::post('add_users', [MainController::class, 'storeUser'])->name('store_user');
 
 Route::get('edit_user/{id}', [MainController::class, 'editUser'])->name('edit_user');
