@@ -60,7 +60,7 @@ Route::get('show_all_users_in_db',[GetAllUser::class, 'GetAllUsers'])->name('sho
 Route::get('add_users', [MainController::class, 'showAddUserForm'])->name('add_users');
 Route::get('/users/search', [GetAllUser::class, 'search'])->name('users.search');
 Route::post('add_users', [MainController::class, 'storeUser'])->name('store_user');
-
+Route::get('/users', [GetAllUser::class, 'GetAllUsers'])->name('users.index');
 Route::get('edit_user/{id}', [MainController::class, 'editUser'])->name('edit_user');
 Route::post('update_user/{id}', [MainController::class, 'updateUser'])->name('update_user');
 Route::delete('delete_user/{id}', [MainController::class, 'deleteUser'])->name('delete_user');
