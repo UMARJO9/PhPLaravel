@@ -31,3 +31,5 @@
         </td>
     </tr>
 @endforelse
+
+</tr>
