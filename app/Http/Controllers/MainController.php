@@ -32,6 +32,8 @@ class MainController extends Controller
             'age'        => 'required|integer|min:1',
         ]);
 
+
+
         UserCity::create([
             'first_name' => $request->first_name,
             'last_name'  => $request->last_name,
